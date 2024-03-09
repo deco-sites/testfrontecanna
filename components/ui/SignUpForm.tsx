@@ -8,28 +8,32 @@ export interface Props {
 function SignUpForm({ formTitle }: Props) {
   const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [name, setName] = useState<string>("");
-  const [cpf, setCPF] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [termsAgree, setTermsAgree] = useState<boolean>(false);
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const dataSignup = await invoke["deco-sites/testfrontecanna"].actions
-        .cognitoSignUp(
-          { email, password, name, cpf },
+    if (termsAgree) {
+      setLoading(true);
+      try {
+        const dataSignup = await invoke["deco-sites/testfrontecanna"].actions
+          .cognitoSignUp(
+            { email, password },
+          );
+        console.log({ dataSignup });
+        setLoading(false);
+        window.location.href = "/confirmar-cadastro";
+      } catch (e) {
+        alert(
+          "Não foi possível fazer signup. Verifique as informações fornecidas e tente novamente.",
         );
-      console.log({ dataSignup });
-      setLoading(false);
-      window.location.href = "/confirmar-cadastro";
-    } catch (e) {
+        console.log({ e });
+        setLoading(false);
+      }
+    } else {
       alert(
-        "Não foi possível fazer signup. Verifique as informações fornecidas e tente novamente.",
+        "Você deve concordar com os Termos de Uso e Políticas de Privacidade para continuar seu cadastro",
       );
-      console.log({ e });
-      setLoading(false);
     }
   };
 
@@ -43,25 +47,11 @@ function SignUpForm({ formTitle }: Props) {
           {formTitle}
         </span>
         <input
-          placeholder="Nome completo"
-          class="input input-bordered"
-          name="name"
-          value={name}
-          onChange={(e) => e.target && setName(e.currentTarget.value)}
-        />
-        <input
           placeholder="Email"
           class="input input-bordered"
           name="email"
           value={email}
           onChange={(e) => e.target && setEmail(e.currentTarget.value)}
-        />
-        <input
-          placeholder="CPF"
-          class="input input-bordered"
-          name="cpf"
-          value={cpf}
-          onChange={(e) => e.target && setCPF(e.currentTarget.value)}
         />
         <input
           type="password"
