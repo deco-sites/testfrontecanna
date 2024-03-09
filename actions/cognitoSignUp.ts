@@ -15,7 +15,7 @@ const signUpCognito = async (
       },
       body: JSON.stringify({
         email: props.email,
-        password: props.password
+        password: props.password,
       }),
     });
 
