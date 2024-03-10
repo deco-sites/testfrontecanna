@@ -20,9 +20,9 @@ function SignUpForm({ formTitle }: Props) {
           .cognitoSignUp(
             { email, password },
           );
-        console.log({ dataSignup });
+        localStorage.setItem("emailConfirmCheckout", email);
         setLoading(false);
-        window.location.href = "/confirmar-cadastro";
+        window.location.href = "/checkout";
       } catch (e) {
         alert(
           "Não foi possível fazer signup. Verifique as informações fornecidas e tente novamente.",
