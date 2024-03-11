@@ -4,7 +4,7 @@ export interface Props {
   cids: string[];
   cpf_cnpj: string;
   name: string;
-  plan: string;
+  sku: string;
   credit_card: {
     holder: string;
     number: string;

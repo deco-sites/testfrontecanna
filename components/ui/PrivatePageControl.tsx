@@ -15,7 +15,7 @@ function PrivatePageControl(props: Props) {
     //   window.location.href = "/";
     // }
     try {
-      const response = await fetch("http://localhost:3000/auth/get-me", {
+      const response = await fetch("http://localhost:3000/auth/me", {
         method: "POST",
         headers: {
           "content-type": "application/json",

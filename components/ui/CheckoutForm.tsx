@@ -1,11 +1,13 @@
 import { invoke } from "$store/runtime.ts";
 import { useState } from "preact/hooks";
+import { Plan } from "$store/components/ui/Checkout.tsx";
 
 export interface Props {
   formTitle?: string;
+  plans: Plan[];
 }
 
-function CheckoutForm({ formTitle }: Props) {
+function CheckoutForm({ formTitle, plans }: Props) {
   const email = localStorage.getItem("emailConfirmCheckout");
   const [code, setCode] = useState<string>("");
   const [cpf, setCPF] = useState<string>("");
@@ -33,39 +35,65 @@ function CheckoutForm({ formTitle }: Props) {
   const [loading, setLoading] = useState<boolean>(false);
   const [termsAgree, setTermsAgree] = useState<boolean>(false);
 
-  // const handleSubmit = async (e: Event) => {
-  //   e.preventDefault();
-  // if (termsAgree) {
-  //   setLoading(true);
-  //   try {
-  //     const dataSignup = await invoke["deco-sites/testfrontecanna"].actions
-  //       .cognitoSignUp(
-  //         { email, password },
-  //       );
-  //     setLoading(false);
-  //     window.location.href = "/checkout";
-  //   } catch (e) {
-  //     alert(
-  //       "Não foi possível fazer signup. Verifique as informações fornecidas e tente novamente.",
-  //     );
-  //     console.log({ e });
-  //     setLoading(false);
-  //   }
-  // } else {
-  //   alert(
-  //     "Você deve concordar com os Termos de Uso e Políticas de Privacidade para continuar seu cadastro",
-  //   );
-  // }
-  // };
+  const handleSubmit = async (e: Event) => {
+    e.preventDefault();
+    if (termsAgree) {
+      setLoading(true);
+      try {
+        await invoke["deco-sites/testfrontecanna"].actions
+          .checkout(
+            {
+              email: holderEmail,
+              code,
+              cids,
+              cpf_cnpj: cpf,
+              name,
+              sku: plan,
+              credit_card: {
+                holder: holderName,
+                number: creditCardNumber,
+                exp_month: creditCardExpMonth,
+                exp_year: creditCardExpYear,
+                ccv: creditCardCCV,
+              },
+              holder_info: {
+                full_name: holderName,
+                email: holderEmail,
+                cpf_cnpj: holderCPF,
+                postal_code: billingAddressPostalCode,
+                address_number: billingAddressNumber,
+                address_complement: billingAddressComplement,
+                phone: holderPhone,
+              },
+            },
+          );
+        setLoading(false);
+
+        alert(
+          "Assinatura criada!",
+        );
+
+        // window.location.href = "/";
+      } catch (e) {
+        alert(
+          "Não foi possível fazer o checkout. Verifique as informações fornecidas e tente novamente.",
+        );
+        setLoading(false);
+      }
+    } else {
+      alert(
+        "Você deve concordar com os Termos de Uso e Políticas de Privacidade para continuar seu cadastro",
+      );
+    }
+  };
 
   return (
     <div class="max-w-[480px]">
       <form
         class="form-control justify-start gap-2 py-8 px-10 bg-[#931C31] rounded-xl"
-        onSubmit={() => {
-          console.log("submit");
+        onSubmit={(event) => {
+          handleSubmit(event);
         }}
-        // onSubmit={(e) => handleSubmit(e)}
       >
         <span class="text-sm text-white font-semibold w-[80%] mb-4">
           {formTitle}
@@ -103,6 +131,24 @@ function CheckoutForm({ formTitle }: Props) {
 
         {/* Plan Selection */}
         <h3>Selecione o Plano</h3>
+
+        <select
+          class="select select-bordered"
+          value={plan}
+          onChange={(e) => e.target && setPlan(e.currentTarget.value)}
+        >
+          {plans.map((plan) => (
+            <option
+              value={plan.skus[0]}
+              onClick={(e) => {
+                e.preventDefault();
+                setPlan(plan.skus[0]);
+              }}
+            >
+              {plan.name}
+            </option>
+          ))}
+        </select>
 
         {/* Creditcard Info */}
         <h3>Dados do Cartão</h3>
