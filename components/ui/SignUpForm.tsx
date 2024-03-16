@@ -22,7 +22,7 @@ function SignUpForm({ formTitle }: Props) {
           );
         localStorage.setItem("emailConfirmCheckout", email);
         setLoading(false);
-        window.location.href = "/checkout";
+        window.location.href = "/confirmar-cadastro";
       } catch (e) {
         alert(
           "Não foi possível fazer signup. Verifique as informações fornecidas e tente novamente.",

@@ -11,12 +11,13 @@ export interface Props {
 
 function PrivatePageControl(props: Props) {
   async function isLogged({ accessToken }: { accessToken: string }) {
-    // if (accessToken === "") {
-    //   window.location.href = "/";
-    // }
+    if (accessToken === "") {
+      window.location.href = "/";
+    }
+
     try {
       const response = await fetch("http://localhost:3000/auth/me", {
-        method: "POST",
+        method: "GET",
         headers: {
           "content-type": "application/json",
           accept: "application/json",
@@ -24,24 +25,20 @@ function PrivatePageControl(props: Props) {
         },
       }).then((r) => r.json());
 
-      console.log({ response });
-      console.log({ response: response.data });
+      const username = response.data.Username;
 
-      if (!response.data) {
+      if (!username) {
         window.location.href = "/";
       }
     } catch (error) {
       console.error("Erro ao carregar dados:", error);
+      window.location.href = "/";
     }
   }
 
   useEffect(() => {
     // Pega accessCode no localStorage para verificar se ainda está válida a sessão via api
     const accessToken = localStorage.getItem("AccessToken") || "";
-
-    if (accessToken === "") {
-      window.location.href = "/";
-    }
 
     isLogged({ accessToken });
   }, []); // Passando um array de dependências vazio
