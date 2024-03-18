@@ -52,9 +52,9 @@ function MyInfo() {
     const file = fileInput.files && fileInput.files[0];
     if (file) {
       const formData = new FormData();
-      formData.append("file", file); 
+      formData.append("file", file);
       formData.append("category", "selfie_photo");
-  
+
       try {
         const response = await fetch("http://localhost:3000/files", {
           method: "POST",
