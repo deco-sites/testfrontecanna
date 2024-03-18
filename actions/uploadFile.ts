@@ -1,25 +1,29 @@
-export interface Props {
+export interface PropsFormData {
+  data: FormData;
+  token?: string;
+}
+
+export interface PropsData {
   data: {
     files: {
       file: File;
     };
-    body: {
-      category: string;
-    };
+    category: string;
   };
   token?: string;
 }
 
-const getUser = async (
-  { data }: Props,
-  _req: Request
+const uploadFile = async (
+  { data }: PropsData,
+  _req: Request,
 ): Promise<unknown | null> => {
+  console.log({ dataBody: data });
   try {
-    const response = await fetch('http://localhost:3000/files', {
-      method: 'POST',
+    const response = await fetch("http://localhost:3000/files", {
+      method: "POST",
       body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'multipart/form-data;',
+        "Content-Type": "multipart/form-data;",
         // Authorization: token,
       },
     });
@@ -32,4 +36,4 @@ const getUser = async (
   }
 };
 
-export default getUser;
+export default uploadFile;

@@ -48,27 +48,28 @@ function MyInfo() {
   const handleUploadSelfie = (
     event: h.JSX.TargetedEvent<HTMLInputElement, Event>,
   ) => {
+    console.log({ event: event.target });
     const fileInput = event.target as HTMLInputElement;
     const file = fileInput.files && fileInput.files[0];
+
     console.log({ files: fileInput.files, file });
+
     if (file) {
-      // const formData = new FormData();
-      // formData.append("file", file);
-      // formData.append("category", "selfie_photo");
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("category", "selfie_photo");
 
       const data = {
         files: {
           file,
         },
-        body: {
-          category: "selfie_photo",
-        },
+        category: "selfie_photo",
       };
 
-      console.log({ data });
+      console.log({ data, formData });
       try {
         invoke["deco-sites/testfrontecanna"].actions.uploadFile({
-          data,
+          data: data,
         }).then((r) => {
           console.log({ responseUploadFile: r });
           setIsLoading(false);
@@ -112,7 +113,7 @@ function MyInfo() {
             <input
               type="file"
               class="file-input file-input-bordered file-input-xs w-full max-w-xs"
-              onChange={handleUploadSelfie}
+              onChange={(e) => handleUploadSelfie(e)}
             />
 
             {/* Adrress */}

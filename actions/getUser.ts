@@ -4,13 +4,13 @@ export interface Props {
 
 const getUser = async (
   { token }: Props,
-  _req: Request
+  _req: Request,
 ): Promise<unknown | null> => {
   try {
-    const response = await fetch('http://localhost:3000/auth/me', {
-      method: 'GET',
+    const response = await fetch("http://localhost:3000/auth/me", {
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: token,
       },
     });

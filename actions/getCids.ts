@@ -5,13 +5,13 @@ export interface Props {
 
 const getCids = async (
   { term, token }: Props,
-  _req: Request
+  _req: Request,
 ): Promise<unknown | null> => {
   try {
     const response = await fetch(`http://localhost:3000/cids?name=${term}`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: token,
       },
     });
