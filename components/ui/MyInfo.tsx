@@ -45,35 +45,27 @@ function MyInfo() {
     }
   }, []); // Passando um array de dependências vazio
 
-  const handleUploadSelfie = (
+  const handleUploadSelfie = async (
     event: h.JSX.TargetedEvent<HTMLInputElement, Event>,
   ) => {
-    console.log({ event: event.target });
     const fileInput = event.target as HTMLInputElement;
     const file = fileInput.files && fileInput.files[0];
-
-    console.log({ files: fileInput.files, file });
-
     if (file) {
       const formData = new FormData();
-      formData.append("file", file);
+      formData.append("file", file); 
       formData.append("category", "selfie_photo");
-
-      const data = {
-        files: {
-          file,
-        },
-        category: "selfie_photo",
-      };
-
-      console.log({ data, formData });
+  
       try {
-        invoke["deco-sites/testfrontecanna"].actions.uploadFile({
-          data: data,
-        }).then((r) => {
-          console.log({ responseUploadFile: r });
-          setIsLoading(false);
+        const response = await fetch("http://localhost:3000/files", {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization: localStorage.getItem("AccessToken") || "",
+            ContentType: "multipart/form-data",
+          },
         });
+
+        await response.json();
       } catch (e) {
         console.log({ e });
       }
@@ -108,7 +100,6 @@ function MyInfo() {
           <div>
             {/* Perosnal Info */}
             <h2>Dados Pessoais</h2>
-
             {/* Selfie */}
             <input
               type="file"
