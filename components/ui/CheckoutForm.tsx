@@ -240,24 +240,6 @@ function CheckoutForm({ formTitle, plans }: Props) {
           onChange={(e) =>
             e.target && setBillingAddressComplement(e.currentTarget.value)}
         />
-
-        {/* CIDs */}
-
-        {/* Responsability Agreement */}
-        <label class="cursor-pointer label flex justify-start gap-2">
-          <input
-            type="checkbox"
-            checked={termsAgree}
-            class="checkbox checkbox-xs border-white"
-            onChange={(e) => {
-              setTermsAgree(e.currentTarget.checked);
-            }}
-          />
-          <span class="label-text text-xs text-white">
-            Declaro, sob minha responsabilidade, que todas as informações
-            inseridas neste formulário são verdadeiras
-          </span>
-        </label>
         <button
           type={"submit"}
           class="btn bg-[#2B2B30] text-white mt-5 disabled:loading border-none"
