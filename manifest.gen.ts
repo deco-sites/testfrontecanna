@@ -7,8 +7,10 @@ import * as $$$$$$$$$1 from "./actions/cognitoSignIn.ts";
 import * as $$$$$$$$$2 from "./actions/cognitoSignUp.ts";
 import * as $$$$$$$$$3 from "./actions/getCids.ts";
 import * as $$$$$$$$$4 from "./actions/getPlans.ts";
-import * as $$$$$$$$$5 from "./actions/getUser.ts";
-import * as $$$$$$$$$6 from "./actions/uploadFile.ts";
+import * as $$$$$$$$$5 from "./actions/getProfile.ts";
+import * as $$$$$$$$$6 from "./actions/getUser.ts";
+import * as $$$$$$$$$7 from "./actions/updateUserData.ts";
+import * as $$$$$$$$$8 from "./actions/uploadFile.ts";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
 import * as $$$2 from "./loaders/availableIcons.ts";
@@ -154,8 +156,10 @@ const manifest = {
     "deco-sites/testfrontecanna/actions/cognitoSignUp.ts": $$$$$$$$$2,
     "deco-sites/testfrontecanna/actions/getCids.ts": $$$$$$$$$3,
     "deco-sites/testfrontecanna/actions/getPlans.ts": $$$$$$$$$4,
-    "deco-sites/testfrontecanna/actions/getUser.ts": $$$$$$$$$5,
-    "deco-sites/testfrontecanna/actions/uploadFile.ts": $$$$$$$$$6,
+    "deco-sites/testfrontecanna/actions/getProfile.ts": $$$$$$$$$5,
+    "deco-sites/testfrontecanna/actions/getUser.ts": $$$$$$$$$6,
+    "deco-sites/testfrontecanna/actions/updateUserData.ts": $$$$$$$$$7,
+    "deco-sites/testfrontecanna/actions/uploadFile.ts": $$$$$$$$$8,
   },
   "apps": {
     "deco-sites/testfrontecanna/apps/decohub.ts": $$$$$$$$$$$0,
