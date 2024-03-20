@@ -185,13 +185,18 @@ function MyInfo() {
       },
     };
 
-    console.log({ body });
-
     try {
       invoke["deco-sites/testfrontecanna"].actions.updateUserData(body).then(
         (r) => {
-          console.log({ r });
           setIsSubmitting(false);
+          invoke["deco-sites/testfrontecanna"].actions.updateProfile({
+            token: localStorage.getItem("AccessToken") || "",
+            body: { updatedData: true },
+          }).then(
+            (res) => {
+              window.location.href = window.location.pathname;
+            },
+          );
         },
       );
     } catch (e) {
