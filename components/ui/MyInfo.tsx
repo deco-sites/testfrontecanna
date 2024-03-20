@@ -45,41 +45,33 @@ function MyInfo() {
       invoke["deco-sites/testfrontecanna"].actions.getUser({
         token: accessToken,
       }).then((r) => {
-        const respCognito = r as {
+        const res = r as {
           data: { UserAttributes: { Name: string; Value: string }[] };
+          dataProfile:
+            & Omit<UpdateDataProps, "name cpf address">
+            & {
+              address: UpdateDataProps["address"][];
+            };
         };
-        const userName = respCognito.data.UserAttributes.find((a) =>
+        const userName = res.data.UserAttributes.find((a) =>
           a["Name"] === "name"
         );
-        const userCpf = respCognito.data.UserAttributes.find((a) =>
+        const userCpf = res.data.UserAttributes.find((a) =>
           a["Name"] === "custom:cpfcnpj"
         );
 
         setName(userName?.Value || "NOME NÃO CADASTRADO");
         setCpf(userCpf?.Value || "CPF NÃO CADASTRADO");
 
-        invoke["deco-sites/testfrontecanna"].actions.getProfile({
-          token: accessToken,
-        }).then((response) => {
-          const respProfile = response as
-            & Omit<UpdateDataProps, "name cpf address">
-            & {
-              address: UpdateDataProps["address"][];
-            };
-          console.log({ responseProfile: response });
+        const address = res.dataProfile.address[0];
 
-          const address = respProfile.address[0];
-
-          setPostalCode(address.cep);
-          setAddressStreet(address.street);
-          setAddressNeighborhood(address.neighborhood);
-          setAddressNumber(address.number);
-          setAddressComplement(address.complement);
-          setCids(respProfile.cids);
-          setUserImg(respProfile.avatar_photo);
-
-          setIsLoading(false);
-        });
+        setPostalCode(address.cep);
+        setAddressStreet(address.street);
+        setAddressNeighborhood(address.neighborhood);
+        setAddressNumber(address.number);
+        setAddressComplement(address.complement);
+        setCids(res.dataProfile.cids);
+        setUserImg(res.dataProfile.avatar_photo);
 
         console.log({ r });
         setIsLoading(false);
