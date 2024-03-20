@@ -30,6 +30,7 @@ import * as $ShippingSimulation from "./islands/ShippingSimulation.tsx";
 import * as $ShowMore from "./islands/ShowMore.tsx";
 import * as $SignInForm from "./islands/SignInForm.tsx";
 import * as $SignUpForm from "./islands/SignUpForm.tsx";
+import * as $Signout from "./islands/Signout.tsx";
 import * as $SliderJS from "./islands/SliderJS.tsx";
 import * as $WishlistButton_vtex from "./islands/WishlistButton/vtex.tsx";
 import * as $WishlistButton_wake from "./islands/WishlistButton/wake.tsx";
@@ -67,6 +68,7 @@ const manifest = {
     "./islands/ShowMore.tsx": $ShowMore,
     "./islands/SignInForm.tsx": $SignInForm,
     "./islands/SignUpForm.tsx": $SignUpForm,
+    "./islands/Signout.tsx": $Signout,
     "./islands/SliderJS.tsx": $SliderJS,
     "./islands/WishlistButton/vtex.tsx": $WishlistButton_vtex,
     "./islands/WishlistButton/wake.tsx": $WishlistButton_wake,
