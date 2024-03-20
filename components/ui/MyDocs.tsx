@@ -113,6 +113,7 @@ const NewDocModal = ({ onFinishCreate }: { onFinishCreate: () => void }) => {
         },
       });
       const r = await response.json();
+
       // console.log({ r });
       displayNewDocModal.value = false;
 
@@ -120,6 +121,12 @@ const NewDocModal = ({ onFinishCreate }: { onFinishCreate: () => void }) => {
       if (r.message === "You need to upgrade your plan to create documents") {
         displayPlanLimit.value = true;
       } else {
+        //update uploadedFile flag state
+        await invoke["deco-sites/testfrontecanna"].actions.updateProfile({
+          token: localStorage.getItem("AccessToken") || "",
+          body: { uploadedFile: true },
+        });
+
         onFinishCreate();
         alert("Upload concluído");
       }
@@ -209,33 +216,6 @@ function MyDocs() {
   useEffect(() => {
     getDocuments();
   }, []); // Passando um array de dependências vazio
-
-  // const docs = [
-  //   {
-  //     title: "Decisão HC 2023",
-  //     file_url:
-  //       "http://localhost:3000/files/habeas_corpus/a9ccae00-db64-11ee-9c55-4f600b831410",
-  //     created_at: new Date("2024-12-12T00:00:00.000+00:00"),
-  //     category: "habeas_corpus",
-  //     status: "PENDING",
-  //   },
-  //   {
-  //     title: "Autorização maio/2023",
-  //     file_url:
-  //       "http://localhost:3000/files/habeas_corpus/a9ccae00-db64-11ee-9c55-4f600b831410",
-  //     created_at: new Date("2024-12-12T00:00:00.000+00:00"),
-  //     category: "anvisa",
-  //     status: "PENDING",
-  //   },
-  //   {
-  //     title: "Prescrição Dr. Pedro",
-  //     file_url:
-  //       "http://localhost:3000/files/habeas_corpus/a9ccae00-db64-11ee-9c55-4f600b831410",
-  //     created_at: new Date("2024-12-12T00:00:00.000+00:00"),
-  //     category: "medical_prescription",
-  //     status: "PENDING",
-  //   },
-  // ];
 
   const medicalDocs = docs.filter((d) => d.category === "medical_prescription");
   const anvisaDocs = docs.filter((d) => d.category === "anvisa");

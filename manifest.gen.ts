@@ -10,8 +10,9 @@ import * as $$$$$$$$$4 from "./actions/getDocs.ts";
 import * as $$$$$$$$$5 from "./actions/getPlans.ts";
 import * as $$$$$$$$$6 from "./actions/getProfile.ts";
 import * as $$$$$$$$$7 from "./actions/getUser.ts";
-import * as $$$$$$$$$8 from "./actions/updateUserData.ts";
-import * as $$$$$$$$$9 from "./actions/uploadFile.ts";
+import * as $$$$$$$$$8 from "./actions/updateProfile.ts";
+import * as $$$$$$$$$9 from "./actions/updateUserData.ts";
+import * as $$$$$$$$$10 from "./actions/uploadFile.ts";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
 import * as $$$2 from "./loaders/availableIcons.ts";
@@ -162,8 +163,9 @@ const manifest = {
     "deco-sites/testfrontecanna/actions/getPlans.ts": $$$$$$$$$5,
     "deco-sites/testfrontecanna/actions/getProfile.ts": $$$$$$$$$6,
     "deco-sites/testfrontecanna/actions/getUser.ts": $$$$$$$$$7,
-    "deco-sites/testfrontecanna/actions/updateUserData.ts": $$$$$$$$$8,
-    "deco-sites/testfrontecanna/actions/uploadFile.ts": $$$$$$$$$9,
+    "deco-sites/testfrontecanna/actions/updateProfile.ts": $$$$$$$$$8,
+    "deco-sites/testfrontecanna/actions/updateUserData.ts": $$$$$$$$$9,
+    "deco-sites/testfrontecanna/actions/uploadFile.ts": $$$$$$$$$10,
   },
   "apps": {
     "deco-sites/testfrontecanna/apps/decohub.ts": $$$$$$$$$$$0,
