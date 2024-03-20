@@ -61,22 +61,23 @@ import * as $$$$$$38 from "./sections/Miscellaneous/MyDocs.tsx";
 import * as $$$$$$39 from "./sections/Miscellaneous/MyInfo.tsx";
 import * as $$$$$$40 from "./sections/Miscellaneous/PrivatePageControl.tsx";
 import * as $$$$$$41 from "./sections/Miscellaneous/SignIn.tsx";
+import * as $$$$$$43 from "./sections/Miscellaneous/Signout.tsx";
 import * as $$$$$$42 from "./sections/Miscellaneous/SignUp.tsx";
-import * as $$$$$$43 from "./sections/Miscellaneous/Slide.tsx";
-import * as $$$$$$44 from "./sections/Newsletter/Newsletter.tsx";
-import * as $$$$$$45 from "./sections/Product/ImageGalleryFrontBack.tsx";
-import * as $$$$$$46 from "./sections/Product/ImageGallerySlider.tsx";
-import * as $$$$$$47 from "./sections/Product/NotFound.tsx";
-import * as $$$$$$48 from "./sections/Product/NotFoundChallenge.tsx";
-import * as $$$$$$49 from "./sections/Product/ProductInfo.tsx";
-import * as $$$$$$50 from "./sections/Product/ProductShelf.tsx";
-import * as $$$$$$51 from "./sections/Product/ProductShelfTabbed.tsx";
-import * as $$$$$$52 from "./sections/Product/SearchResult.tsx";
-import * as $$$$$$53 from "./sections/Product/ShelfWithImage.tsx";
-import * as $$$$$$54 from "./sections/Product/Wishlist.tsx";
-import * as $$$$$$55 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$56 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$57 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$44 from "./sections/Miscellaneous/Slide.tsx";
+import * as $$$$$$45 from "./sections/Newsletter/Newsletter.tsx";
+import * as $$$$$$46 from "./sections/Product/ImageGalleryFrontBack.tsx";
+import * as $$$$$$47 from "./sections/Product/ImageGallerySlider.tsx";
+import * as $$$$$$48 from "./sections/Product/NotFound.tsx";
+import * as $$$$$$49 from "./sections/Product/NotFoundChallenge.tsx";
+import * as $$$$$$50 from "./sections/Product/ProductInfo.tsx";
+import * as $$$$$$51 from "./sections/Product/ProductShelf.tsx";
+import * as $$$$$$52 from "./sections/Product/ProductShelfTabbed.tsx";
+import * as $$$$$$53 from "./sections/Product/SearchResult.tsx";
+import * as $$$$$$54 from "./sections/Product/ShelfWithImage.tsx";
+import * as $$$$$$55 from "./sections/Product/Wishlist.tsx";
+import * as $$$$$$56 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$57 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$58 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
@@ -133,26 +134,27 @@ const manifest = {
     "deco-sites/testfrontecanna/sections/Miscellaneous/PrivatePageControl.tsx":
       $$$$$$40,
     "deco-sites/testfrontecanna/sections/Miscellaneous/SignIn.tsx": $$$$$$41,
+    "deco-sites/testfrontecanna/sections/Miscellaneous/Signout.tsx": $$$$$$43,
     "deco-sites/testfrontecanna/sections/Miscellaneous/SignUp.tsx": $$$$$$42,
-    "deco-sites/testfrontecanna/sections/Miscellaneous/Slide.tsx": $$$$$$43,
-    "deco-sites/testfrontecanna/sections/Newsletter/Newsletter.tsx": $$$$$$44,
+    "deco-sites/testfrontecanna/sections/Miscellaneous/Slide.tsx": $$$$$$44,
+    "deco-sites/testfrontecanna/sections/Newsletter/Newsletter.tsx": $$$$$$45,
     "deco-sites/testfrontecanna/sections/Product/ImageGalleryFrontBack.tsx":
-      $$$$$$45,
-    "deco-sites/testfrontecanna/sections/Product/ImageGallerySlider.tsx":
       $$$$$$46,
-    "deco-sites/testfrontecanna/sections/Product/NotFound.tsx": $$$$$$47,
+    "deco-sites/testfrontecanna/sections/Product/ImageGallerySlider.tsx":
+      $$$$$$47,
+    "deco-sites/testfrontecanna/sections/Product/NotFound.tsx": $$$$$$48,
     "deco-sites/testfrontecanna/sections/Product/NotFoundChallenge.tsx":
-      $$$$$$48,
-    "deco-sites/testfrontecanna/sections/Product/ProductInfo.tsx": $$$$$$49,
-    "deco-sites/testfrontecanna/sections/Product/ProductShelf.tsx": $$$$$$50,
+      $$$$$$49,
+    "deco-sites/testfrontecanna/sections/Product/ProductInfo.tsx": $$$$$$50,
+    "deco-sites/testfrontecanna/sections/Product/ProductShelf.tsx": $$$$$$51,
     "deco-sites/testfrontecanna/sections/Product/ProductShelfTabbed.tsx":
-      $$$$$$51,
-    "deco-sites/testfrontecanna/sections/Product/SearchResult.tsx": $$$$$$52,
-    "deco-sites/testfrontecanna/sections/Product/ShelfWithImage.tsx": $$$$$$53,
-    "deco-sites/testfrontecanna/sections/Product/Wishlist.tsx": $$$$$$54,
-    "deco-sites/testfrontecanna/sections/Social/InstagramPosts.tsx": $$$$$$55,
-    "deco-sites/testfrontecanna/sections/Social/WhatsApp.tsx": $$$$$$56,
-    "deco-sites/testfrontecanna/sections/Theme/Theme.tsx": $$$$$$57,
+      $$$$$$52,
+    "deco-sites/testfrontecanna/sections/Product/SearchResult.tsx": $$$$$$53,
+    "deco-sites/testfrontecanna/sections/Product/ShelfWithImage.tsx": $$$$$$54,
+    "deco-sites/testfrontecanna/sections/Product/Wishlist.tsx": $$$$$$55,
+    "deco-sites/testfrontecanna/sections/Social/InstagramPosts.tsx": $$$$$$56,
+    "deco-sites/testfrontecanna/sections/Social/WhatsApp.tsx": $$$$$$57,
+    "deco-sites/testfrontecanna/sections/Theme/Theme.tsx": $$$$$$58,
   },
   "actions": {
     "deco-sites/testfrontecanna/actions/checkout.ts": $$$$$$$$$0,
