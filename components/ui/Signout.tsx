@@ -17,9 +17,7 @@ function Signout(props: Props) {
     window.location.href = "/";
   }, []); // Passando um array de dependências vazio
 
-  return (
-    <div></div>
-  );
+  return <div></div>;
 }
 
 export default Signout;
