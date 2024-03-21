@@ -1,4 +1,4 @@
-import type { RequestURLParam } from 'apps/website/functions/requestToParam.ts';
+import type { RequestURLParam } from "apps/website/functions/requestToParam.ts";
 
 export interface Props {
   slug: RequestURLParam;
@@ -6,8 +6,8 @@ export interface Props {
 
 export interface Cid {
   _id: string;
+  full_code: string;
   name: string;
-  description: string;
 }
 
 export interface Document {
@@ -16,24 +16,29 @@ export interface Document {
   category: string;
 }
 
+export interface Association {
+  name: string;
+}
+
 export interface PublicProfile {
   cpf: string;
+  avatar_photo: string;
   name: string;
   cids: Cid[];
+  association: Association;
   plan: string;
   documents: Document[];
 }
 
 const getPublicProfile = async (
   { slug }: Props,
-  _req: Request
+  _req: Request,
 ): Promise<PublicProfile> => {
-  console.log({ idLoader: slug });
   try {
-    const response = await fetch('http://localhost:3000/auth/public/' + slug, {
-      method: 'GET',
+    const response = await fetch("http://localhost:3000/auth/public/" + slug, {
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
 
