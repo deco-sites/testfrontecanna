@@ -11,10 +11,24 @@ export interface Props {
 
 function Signout(props: Props) {
   useEffect(() => {
-    // apagar accress token
-    localStorage.setItem("AccessToken", "");
+    const token = localStorage.getItem("AccessToken");
 
-    window.location.href = "/";
+    try {
+      fetch("http://localhost:3000/auth/sign-out", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token || "",
+        },
+      }).then((r) => {
+        // apagar accress token
+        localStorage.setItem("AccessToken", "");
+        window.location.href = "/";
+      });
+    } catch (e) {
+      // console.log({ e });
+      return e;
+    }
   }, []); // Passando um array de dependências vazio
 
   return <div></div>;
